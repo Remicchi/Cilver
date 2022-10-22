@@ -4,50 +4,87 @@ $username = "root";
 $password = "";
 $dbname = "movies";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password);
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-
-// // Create database
-// $sql = "CREATE DATABASE movies";
-// if ($conn->query($sql) === TRUE) {
-//   echo "Database created successfully";
-// } else {
-//   echo "Error creating database: " . $conn->error;
-// }
-// mysqli_close($conn);
+// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected Successfully<br>";
 
-/* comment necessary code below if you have run this cript before */
-// $sql = "CREATE TABLE `movielist` (
-//     id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-//     moviename varchar(64) NOT NULL,
-//     price float(16,2) NOT NULL
-// );";
+//Create movielist
+$sql = "CREATE TABLE IF NOT EXISTS `movielist` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	moviename varchar(64) NOT NULL,
+	duration varchar(10) NOT NULL,
+	cast varchar(64) NOT NULL,
+	day varchar(10) NOT NULL,
+	timing varchar(7) NOT NULL,
+	description varchar(128) NOT NULL,
+	price float(16,2) NOT NULL
+);";
+if (mysqli_query($conn, $sql)) {
+    echo "The table movielist has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
 
-// if (mysqli_query($conn, $sql)) {
-//     echo "Database and tables are created successfully";
-// } else {
-//     echo "Error creating database: " . mysqli_error($conn);
-// }
-
-$sql = "CREATE TABLE `bookings` (
-    id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    movie1 int NOT NULL,
-    movie2 int NOT NULL,
-    movie3 int NOT NULL,
-    movie4 int NOT NULL,
-    movie5 int NOT NULL,
-    movie6 int NOT NULL
+//Create bookings
+$sql = "CREATE TABLE IF NOT EXISTS `bookings` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	username varchar(30) NOT NULL,
+	movie varchar(64) NOT NULL,
+	day varchar(10) NOT NULL,
+	timing varchar(7) NOT NULL,
+	seat varchar(3) NOT NULL,
+	price float(16,2) NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {
-    echo "Database and tables are created successfully";
+    echo "The table bookings has been prepared<br>";
 } else {
-    echo "Error creating database: " . mysqli_error($conn);
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+//Create userlogininfo
+$sql = "CREATE TABLE IF NOT EXISTS `userlogininfo` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	username varchar(30) NOT NULL,
+	password varchar(30) NOT NULL
+);";
+
+if (mysqli_query($conn, $sql)) {
+    echo "The table userlogininfo has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+//Create userloginstatus
+$sql = "CREATE TABLE IF NOT EXISTS `userloginstatus` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	username varchar(30) NOT NULL,
+	status int NOT NULL
+);";
+
+if (mysqli_query($conn, $sql)) {
+    echo "The table userloginstatus has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+//Create jobapplication
+$sql = "CREATE TABLE IF NOT EXISTS `jobapplication` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	username varchar(30) NOT NULL,
+	phone int NOT NULL,
+	email varchar(64) NOT NULL,
+	address varchar(128) NOT NULL
+);";
+
+if (mysqli_query($conn, $sql)) {
+    echo "The table jobapplication has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
 }
 
 mysqli_close($conn);
