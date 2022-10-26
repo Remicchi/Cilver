@@ -16,14 +16,14 @@ header{
     color: #00005D;
     /* width: 100%; */
     /* min-width:1000px; */
-    padding: 1% 5% 1% 7%;
+    padding: 1% 7% 1% 7%;
     min-height: 100px;
     max-height: 150px;
     vertical-align: bottom;
 }
 header img{
-    max-width: 9%;
-    height: auto;
+    max-height: 120px;
+    width: auto;
 }
 h2 { 
     color: #e7e7dc; 
@@ -34,9 +34,9 @@ h2 {
     padding: 3%; 
 } 
 .movie {
-    width: 20%;
-    padding: 5px 30px;
-    margin: auto;
+    width: 27%;
+    padding: 5px 8px 0px 8px;
+    margin: 0px 15px;
     display: inline-block;
 }
 .movie img {
@@ -71,7 +71,6 @@ h2 {
 
 nav{
     float: right;
-    margin-right: 5%;
 }
 
 nav a {
