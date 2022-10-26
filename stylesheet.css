@@ -16,13 +16,13 @@ header{
     color: #00005D;
     /* width: 100%; */
     /* min-width:1000px; */
-    padding: 2% 2% 0 15%;
+    padding: 1% 5% 1% 7%;
     min-height: 100px;
     max-height: 150px;
     vertical-align: bottom;
 }
 header img{
-    max-width: 100px;
+    max-width: 9%;
     height: auto;
 }
 h2 { 
