@@ -32,7 +32,8 @@ h2 {
 }
 .content {
     padding: 3%; 
-} 
+}
+
 .movie {
     width: 27%;
     padding: 5px 8px 0px 8px;
@@ -119,6 +120,64 @@ footer a {
     min-width:720px;
     min-height: 400px;
 }
+
+.row1 {
+    margin: 3%;
+    padding-bottom: 1%; 
+    min-height: 120px
+}
+
+.row1 img {
+    max-width: 22%;
+    height: auto;
+    float: left;
+}
+
+.row1 h2 {
+    margin-left:30%;
+}
+
+.row1 p {
+    margin-left:30%;
+    margin-right: 2%;
+    padding: 2% 3% 2% 3%;
+    background-color: #c1bdbd;
+
+}
+
+.row2 {
+    margin: 3%;
+}
+
+.contactjoin {
+    width: 49%;
+    display: inline-block;
+    
+}
+
+.contactjoin img {
+    width: 30%;
+    padding: 5% 35% 5% 35%;
+    height: 200px;
+    background-color: #c1bdbd;
+}
+
+.contactjoin p {
+    text-align: center;
+    color: #ffffff;
+}
+
+.contactjoin a {
+    text-decoration: none;
+}
+.contactjoin:hover img {
+    opacity: 0.7;;
+}
+.contactjoin:hover p {
+    color: grey;
+}
+
+
 
 main {
     width: 100%;
