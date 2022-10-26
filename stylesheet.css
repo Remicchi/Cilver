@@ -34,9 +34,9 @@ h2 {
     padding: 3%; 
 } 
 .movie {
-    width: 27%;
-    padding: 5px 8px 0px 8px;
-    margin: 0px 15px;
+    width: 20%;
+    padding: 5px 30px;
+    margin: auto;
     display: inline-block;
 }
 .movie img {
@@ -71,6 +71,7 @@ h2 {
 
 nav{
     float: right;
+    margin-right: 5%;
 }
 
 nav a {
