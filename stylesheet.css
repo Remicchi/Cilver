@@ -1,3 +1,4 @@
+
 body {
     font-family:Verdana, Arial, sans-serif;
     background-color: #FFFFFF;
@@ -63,6 +64,8 @@ h2 {
 }
 .content {
     padding: 3%; 
+} 
+.movie { 
     display: inline-block;
     width: 20%;
     padding: 5px 30px;
@@ -109,61 +112,25 @@ h2 {
     min-height: 400px;
 }
 
-.row1 {
-    margin: 3%;
-    padding-bottom: 1%; 
-    min-height: 120px
-}
+/* Content ends here */
 
-.row1 img {
-    max-width: 22%;
-    height: auto;
-    float: left;
-}
-
-.row1 h2 {
-    margin-left:30%;
-}
-
-.row1 p {
-    margin-left:30%;
-    margin-right: 2%;
-    padding: 2% 3% 2% 3%;
-    background-color: #c1bdbd;
-
-}
-
-.row2 {
-    margin: 3%;
-}
-
-.contactjoin {
-    width: 49%;
-    display: inline-block;
-    
-}
-
-.contactjoin img {
-    width: 30%;
-    padding: 5% 35% 5% 35%;
-    height: 200px;
-    background-color: #c1bdbd;
-}
-
-.contactjoin p {
+/* Footer starts here */
+footer { 
+    background-color: #000000; 
+    font-size:0.7vw;
     text-align: center;
-    color: #ffffff;
-}
+    clear: right;
+    padding: 1% 0;
+    color: #FFFFFF;
+    padding: 15px;
+    line-height: 15px;
+} 
 
-.contactjoin a {
+footer a {
     text-decoration: none;
+    color: #FFFFFF;
 }
-.contactjoin:hover img {
-    opacity: 0.7;;
-}
-.contactjoin:hover p {
-    color: grey;
-}
+/* Footer ends here */
 
 main {
     width: 100%;
