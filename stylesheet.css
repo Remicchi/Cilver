@@ -22,8 +22,9 @@ header{
     vertical-align: bottom;
 }
 header img{
-    max-height: 120px;
-    width: auto;
+    object-fit: contain;
+    max-width: 300px;
+    min-width: 200px;
 }
 h2 { 
     color: #e7e7dc; 
@@ -70,7 +71,10 @@ h2 {
 }
 
 nav{
-    float: right;
+    position: absolute;
+    top: 130px;
+    right: 5%;
+    display: inline-block;
 }
 
 nav a {
@@ -78,10 +82,8 @@ nav a {
     text-decoration: none;
     color: #FFFFFF;
     vertical-align: baseline;
-    line-height: 100px;
+    /* line-height: 100px; */
     width: 100px;
-    position: relative;
-    bottom: -30px;
 }
 
 footer { 
