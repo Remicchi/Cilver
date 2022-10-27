@@ -1,5 +1,4 @@
 for (row = 0; row < 5; row++) {
-    document.write("")
     for(col = 0; col < 8; col++) {
         if (col == 2 || col == 6) {
             document.write("&nbsp&nbsp");

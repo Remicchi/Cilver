@@ -68,7 +68,6 @@ h2 {
     display: inline-block;
     width: 40%;
     padding: 5px 10px;
-    margin-left: 5%;
     color: #e7e7dc; 
     font-family: arial, sans-serif;
     min-width: 300px;
@@ -77,13 +76,14 @@ h2 {
 }
 .movie { 
     display: inline-block;
-    padding: 5px 20px;
+    padding: 5px 5%px 5px 20px;
     margin-left: 10%;
     margin-top: 25px;
     width: 35%;
 }
 .movie img {
     width: 100%;
+    max-width: 350px;
     display: inline-block;
     /* float: left; */
     /* margin-bottom: 10%; */
@@ -92,7 +92,13 @@ select {
     width: 160px;
 }
 #seats {
-    position: relative;
+    min-width: 400px;
+    line-height: 200%;
+}
+input[type='submit'] {
+    margin-left: 100px;
+    align-items: center;
+    width: 115px;
 }
 input[type='checkbox'] {
     width: 25px;
@@ -112,6 +118,16 @@ input[type='checkbox']:checked:after {
     width: 25px;
     height: 20px;
     background-color: #2196F3;
+}
+#screen {
+    margin: 10px 0px;
+    width:310px;
+    height:30px;
+    border:1px solid #000;
+    text-align: center;
+    color: #000;
+    border-radius: 0.25em;
+    background-color: rgb(224, 224, 224);
 }
 #floatleft { 
     margin-left: 4%;
