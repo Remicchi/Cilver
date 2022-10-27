@@ -67,34 +67,52 @@ h2 {
 .description {
     display: inline-block;
     width: 40%;
-    position: absolute;
     padding: 5px 10px;
     margin-left: 5%;
     color: #e7e7dc; 
     font-family: arial, sans-serif;
-}
-select {
-    line-height: 400%;
+    min-width: 300px;
+    position: relative;
+    vertical-align: top;
 }
 .movie { 
     display: inline-block;
-    width: 30%;
-    padding: 5px 30px;
+    padding: 5px 20px;
     margin-left: 10%;
+    margin-top: 25px;
+    width: 35%;
 }
 .movie img {
     width: 100%;
-    /* display: inline-block; */
-    float: left;
+    display: inline-block;
+    /* float: left; */
+    /* margin-bottom: 10%; */
 }
-.movie p {
-    text-align: center;
-    color: #f5f5dd;
+select {
+    width: 160px;
 }
-.movie a {
-    text-decoration: none;
+#seats {
+    position: relative;
+}
+input[type='checkbox'] {
+    width: 25px;
+    height: 20px;
+}
+input[type='checkbox']:after{
+    
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    border-radius: 0.25em;
+    background: rgb(224,224,224);
 }
 
+input[type='checkbox']:checked:after {
+    width: 25px;
+    height: 20px;
+    background-color: #2196F3;
+}
 #floatleft { 
     margin-left: 4%;
     margin-right: 4%;
