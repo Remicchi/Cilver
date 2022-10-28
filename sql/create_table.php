@@ -79,7 +79,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `jobapplication` (
 	username varchar(30) NOT NULL,
 	phone int NOT NULL,
 	email varchar(64) NOT NULL,
-	address varchar(128) NOT NULL
+	startdate varchar(10) NOT NULL,
+	experience varchar(640) NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {
