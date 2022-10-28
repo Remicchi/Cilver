@@ -37,7 +37,8 @@ $sql = "CREATE TABLE IF NOT EXISTS `bookings` (
 	day varchar(10) NOT NULL,
 	timing varchar(7) NOT NULL,
 	seat varchar(3) NOT NULL,
-	price float(16,2) NOT NULL
+	price float(16,2) NOT NULL,
+	paid int NOt NULL
 );";
 
 if (mysqli_query($conn, $sql)) {
