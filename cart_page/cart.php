@@ -28,7 +28,7 @@ if ($conn->connect_error) {
 				</a>
 				<nav>
 					<a href="../index.html">Home</a>
-					<a href="cart.html">Cart</a>
+					<a href="cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
 					<a href="../login_page/login_page.html">Log In</a>
 				</nav>
