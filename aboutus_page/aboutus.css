@@ -2,15 +2,7 @@ body {
     font-family:Verdana, Arial, sans-serif;
     background-color: #FFFFFF;
 }
-
-#points { 
-    height: 25vw;
-    min-height: 200px;
-    margin-left: 35%;
-    font-size:150%;
-    background-color: #f5f5dd;
-    color: #300000;
-}
+/* Header starts here */
 header{ 
     background-color: #000000;
     color: #00005D;
@@ -22,46 +14,10 @@ header{
     vertical-align: bottom;
 }
 header img{
-    max-height: 120px;
-    width: auto;
+    object-fit: contain;
+    max-width: 300px;
+    min-width: 200px;
 }
-h2 { 
-    color: #e7e7dc; 
-    font-family: arial, sans-serif;
-    font-size:200%;
-}
-.content {
-    padding: 3%; 
-}
-
-.movie {
-    width: 27%;
-    padding: 5px 8px 0px 8px;
-    margin: 0px 15px;
-    display: inline-block;
-}
-.movie img {
-    width: 100%;
-}
-.movie p {
-    text-align: center;
-    color: #f5f5dd;
-}
-.movie a {
-    text-decoration: none;
-}
-.movie:hover img {
-    opacity: 0.7;;
-}
-.movie:hover p {
-    color: grey;
-}
-#floatleft { 
-    margin-left: 4%;
-    margin-right: 4%;
-    float: left;
-}
-
 .navbar {
     float: left;
     width: 150px;
@@ -69,37 +25,33 @@ h2 {
     height: 100%;
     position: absolute;
 }
-
 nav{
-    float: right;
+    position: absolute;
+    top: 130px;
+    right: 5%;
+    display: inline-block;
 }
-
 nav a {
     padding: 0px 15px;
     text-decoration: none;
     color: #FFFFFF;
     vertical-align: baseline;
-    line-height: 100px;
+    /* line-height: 100px; */
     width: 100px;
-    position: relative;
-    bottom: -30px;
 }
 
-footer { 
-    background-color: #000000; 
-    font-size:0.7vw;
-    text-align: center;
-    clear: right;
-    padding: 1% 0;
-    color: #FFFFFF;
-    padding: 15px;
-    line-height: 15px;
+/* Header ends here */
+
+/* Content starts here */
+
+h2 { 
+    color: #e7e7dc; 
+    font-family: arial, sans-serif;
+    font-size:200%;
+}
+.content {
+    padding: 3%; 
 } 
-
-footer a {
-    text-decoration: none;
-    color: #FFFFFF;
-}
 
 #wrapper { 
     background-color: #333333; 
@@ -108,29 +60,16 @@ footer a {
     margin: auto;
     min-width:720px;
 }
-#leftcolumn { 
-    width: 10%;
-    float: left;
-    min-width:80px;
-} 
-#rightcolumn { 
-    margin-left: 155px;
-    background-color: #f5f5dd;
-    color: #000000;
-    min-width:720px;
-    min-height: 400px;
-}
 
 .row1 {
     margin: 3%;
     padding-bottom: 1%; 
-    min-height: 120px
+    min-height: 120px;
 }
 
 .row1 img {
     max-width: 22%;
     height: auto;
-    float: left;
 }
 
 .row1 h2 {
@@ -171,11 +110,32 @@ footer a {
     text-decoration: none;
 }
 .contactjoin:hover img {
-    opacity: 0.7;;
+    opacity: 0.7;
 }
 .contactjoin:hover p {
     color: grey;
 }
+
+/* Content ends here */
+
+/* Footer starts here */
+footer { 
+    background-color: #000000; 
+    font-size:0.7vw;
+    text-align: center;
+    clear: right;
+    padding: 1% 0;
+    color: #FFFFFF;
+    padding: 15px;
+    line-height: 15px;
+} 
+
+footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+/* Footer ends here */
+
 
 
 
