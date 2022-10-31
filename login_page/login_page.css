@@ -1,3 +1,6 @@
+:root {
+    --bg_grey: #333;
+  }
 body {
     font-family:Verdana, Arial, sans-serif;
     background-color: #FFFFFF;
@@ -54,8 +57,13 @@ nav a {
 /* Header ends here */
 
 /* Content starts here */
-
-h2 { 
+a {
+    text-decoration: underline;
+    color: #FFFFFF;
+    vertical-align: baseline;
+    width: 100px;
+}
+h2 {
     font-size:150%;
     letter-spacing: 2px;
     word-spacing: 10px;
@@ -65,39 +73,42 @@ h2 {
     padding: 3%; 
 }
 .center {
-    width: 40%;
+    width: 50%;
     min-width: 200px;
+    max-width: 400px;
     text-align: center;
     margin: auto;
+    position: relative;
 }
 input[type='submit'] {
-    margin-left: 100px;
     align-items: center;
     width: 115px;
+    margin: 5px;
 }
-#floatleft { 
-    margin-left: 4%;
-    margin-right: 4%;
-    float: left;
+input[name="login_info"] {
+    width: 250px;
+    height: 25px;
+    border: none;
+    border-radius: 0.4em;
+    margin: 10px;
+}
+label {
+    text-align: left;
+    position: absolute;
+    left: 0px;
+    margin-left: 20%;
+    font-size: 80%;
+    padding-top: 10px;
+}
+p {
+    font-size: 75%;
 }
 #wrapper { 
     background-color: #333333; 
-    color: #000066;
+    color: #fcfcfc;
     width: 100%;
     margin: auto;
     min-width:720px;
-}
-#leftcolumn { 
-    width: 10%;
-    float: left;
-    min-width:80px;
-} 
-#rightcolumn { 
-    margin-left: 155px;
-    background-color: #f5f5dd;
-    color: #000000;
-    min-width:720px;
-    min-height: 400px;
 }
 
 /* Content ends here */
@@ -126,4 +137,3 @@ main {
     display: flex;
     flex-direction: row;
 }
-
