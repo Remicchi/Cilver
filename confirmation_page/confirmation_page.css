@@ -95,12 +95,40 @@ p {
     min-height: 400px;
 }
 
-table {margin: auto; margin-bottom:2%; border: 5px solid #C1BDBD; width: 75%; border-spacing: 0;}
-    th {width: 20%; color: #300000; border: 2px solid #C1BDBD; text-align:left; padding: 3%;}
+table {margin: auto; border: 5px solid #C1BDBD; width: 75%; border-spacing: 0;}
+    th {color: #300000; border: 2px solid #C1BDBD; text-align:left; padding: 3%;}
     td {font-weight:normal;color: #300000; border: 2px solid #C1BDBD; text-align:left; padding: 1%;}
     tr:nth-of-type(odd) {background-color: #908E8E; }
     tr:nth-of-type(even) {background-color: #908E8E; }
-    td input { width:45px;}
+    td input { width:45px;
+}
+
+table.menu tr td:first-child{
+    font-weight: bold;
+    text-align: center;
+}
+table td{
+    text-align: center;
+    padding: 10px;
+}
+table th, table #totalprice{ text-align: center; white-space: nowrap;}
+
+
+/* menu */
+form{
+    margin-top: 10px;
+}
+
+form .input-container label{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 30px;
+}
+form .input-container{
+    margin-top: 10px;
+    display: flex; align-items: flex-start;
+}
 
 .form-submit-button {
     margin: 1% 0 1% 0;
@@ -114,6 +142,40 @@ table {margin: auto; margin-bottom:2%; border: 5px solid #C1BDBD; width: 75%; bo
     background: #C1BDBD;
     color: #fff;
     text-shadow: none;
+}
+
+.menu tr td:first-child, .menu tr th:first-child{
+    background-color: rgb(245, 245, 220);
+    position: relative;
+    left:-20px;
+}
+.menu .menu-checkbox, .sales-report .menu-checkbox{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+
+.sales-report h2{
+    color: rgb(87, 27, 0);
+    font-size: 20px;
+    font-weight: bold;
+    margin:0;
+    margin-bottom: 10px;
+}
+
+
+.report-table{
+    border-collapse: collapse;
+    width: 80%;
+    margin-bottom: 3%;
+}
+.report-table th,.report-table tr, .report-table td{
+    border:1px solid grey;
 }
 
 /* Content ends here */
