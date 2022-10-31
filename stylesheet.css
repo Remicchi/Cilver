@@ -78,12 +78,6 @@ h2 {
     text-align: center;
     color: #f5f5dd;
 }
-.movie a {
-    text-decoration: none;
-}
-.movie:hover img {
-    opacity: 0.7;;
-}
 .movie:hover p {
     color: grey;
 }
