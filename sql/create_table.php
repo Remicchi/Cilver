@@ -17,10 +17,10 @@ $sql = "CREATE TABLE IF NOT EXISTS `movielist` (
 	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	moviename varchar(64) NOT NULL,
 	duration varchar(10) NOT NULL,
-	cast varchar(64) NOT NULL,
+	cast text NOT NULL,
 	day varchar(10) NOT NULL,
-	timing varchar(7) NOT NULL,
-	description varchar(128) NOT NULL,
+	timing text NOT NULL,
+	description text NOT NULL,
 	price float(16,2) NOT NULL
 );";
 if (mysqli_query($conn, $sql)) {
