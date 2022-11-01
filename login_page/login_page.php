@@ -17,13 +17,17 @@
 		$result = $conn->query($sql);
 		while($row = $result->fetch_assoc()) {
 			$currentusername = $row["username"];
+            $currentpsw = $row["password"];
 			if($currentusername == $username){ 
 				// If username exists in table
 				$is_user = 1;
+                if($password == $currentpsw) {
+                    $is_psw = 1;
+                }
 				break;
 			}
 		}
-        if($is_user == 1) {
+        if($is_psw == 1) {
             $sql = "DROP TABLE IF EXISTS userloginstatus;";
             $sql .= "CREATE TABLE IF NOT EXISTS `userloginstatus` (
                 id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -68,7 +72,12 @@
                     <?php
 						if($is_user == 1) {
                             // is user, log in and redirect back to index page
-							echo "<p>You are logged in now. </p>";
+                            if($is_psw == 1){
+                                echo "<p style=\"color: green;\">You are logged in now. </p>";
+                            } else {
+                                echo "<p style=\"color: red;\">Invalid username or password!</p>";
+                            }
+							
 						} else if($is_user == 0) {
 							echo "<p style=\"color: red;\">You are not a user!</p>";
 						}
