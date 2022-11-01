@@ -1,43 +1,37 @@
 <?php
 	// create short variable names
-	$username = $_POST['uname'];
-	$email = $_POST['email'];
-	$password = $_POST['psw'];
-	$email = $_POST['email'];	
 	$existed = -1;
-	$conn = mysqli_connect("localhost", "root", "", "movies");
-			         
-	// Check connection
-	if($conn === false){
-	    die("ERROR: Could not connect. "
-	        . mysqli_connect_error());
-	}
-
-	$sql = "SELECT * FROM `userlogininfo`";
-	$result = $conn->query($sql);
-	if($username != "") {
+	if(isset($_POST['uname'])) {
 		$existed = 0;
-	}
+		$username = $_POST['uname'];
+		$password = $_POST['psw'];
+		$email = $_POST['email'];	
+		$conn = mysqli_connect("localhost", "root", "", "movies");
+				         
+		// Check connection
+		if($conn === false){
+		    die("ERROR: Could not connect. "
+		        . mysqli_connect_error());
+		}
+		$sql = "SELECT * FROM `userlogininfo`";
+		$result = $conn->query($sql);
+		while($row = $result->fetch_assoc()) {
+			$currentusername = $row["username"];
+			if($currentusername == $username){ 
+				// If username exists in table
+				$existed = 1;
+				break;
+			}
+		}
+		if($existed == 0) {
+			$sql = "INSERT INTO `userlogininfo` (username, password, email)
+			VALUES ('{$username}', '{$password}', '{$email}');";
 
-	while($row = $result->fetch_assoc()) {
-		$currentusername = $row["username"];
-		if($currentusername == $username){ 
-			// If username exists in table
-			$existed = 1;
-			break;
+			if (!mysqli_multi_query($conn, $sql)) {
+			    echo "Error creating database: " . mysqli_error($conn);
+			}
 		}
 	}
-	if($existed == 0) {
-		$sql = "INSERT INTO `userlogininfo` (username, password, email)
-		VALUES ('{$username}', '{$password}', '{$email}');";
-		
-		if (!mysqli_multi_query($conn, $sql)) {
-		    echo "Error creating database: " . mysqli_error($conn);
-		}
-	}
-
-	
-
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
