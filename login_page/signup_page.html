@@ -4,6 +4,7 @@
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_page.css">
+	<script type="text/javascript" src="psw_check.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -24,15 +25,21 @@
 					<h2>Sign Up</h2>
 				</div>
 				<div class="center">
-					<label>Username</label><br>
-    				<input type="text" placeholder=" Username" id="uname" name="login_info" required><br>
-					<label>Password</label><br>
-					<input type="password" placeholder=" Password" id="psw1" name="login_info" required><br>
-					<label>Confirm password</label><br>
-					<input type="password" placeholder=" Confirm password" id="psw2" name="login_info" required><br>
-					<br>
-    				<input type="submit" value="Sign Up"></button>
-					<br>
+					<form id = "sign_up_form"  action = "">
+						<label>Username</label><br>
+    					<input type="text" placeholder=" Username" id="uname" name="login_info" required><br>
+						<label>Password</label><br>
+						<input type="password" placeholder=" Password" id="psw1" name="login_info" required><br>
+						<label>Confirm password</label><br>
+						<input type="password" placeholder=" Confirm password" id="psw2" name="login_info" required><br>
+						<br>
+    					<input type="submit" value="Sign Up"></button>
+						<br>
+					</form>
+					<script type = "text/javascript" >
+						document.getElementById("sign_up_form").onsubmit = chkPasswords;
+					</script>
+					
     				<p>Have an account? <a href="login_page.html">Log in Here!</a></p>
 				</div>
 			</div>
