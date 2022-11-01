@@ -48,7 +48,7 @@
 					}	
    			    ?>
 				<div class="movie">
-					<img src="../images/<?php echo $moviename?>.png" alt="BA" target="_blank">
+					<img src="../images/<?php echo $moviename?>.png" alt="<?php echo $moviename?> Poster" target="_blank">
 				</div>
                 <div class="description">
                     <!-- Information below to be retrieved from database -->
