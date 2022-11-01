@@ -1,3 +1,44 @@
+<?php
+	// create short variable names
+	$username = $_POST['uname'];
+	$email = $_POST['email'];
+	$password = $_POST['psw'];
+	$email = $_POST['email'];	
+	$existed = -1;
+	$conn = mysqli_connect("localhost", "root", "", "movies");
+			         
+	// Check connection
+	if($conn === false){
+	    die("ERROR: Could not connect. "
+	        . mysqli_connect_error());
+	}
+
+	$sql = "SELECT * FROM `userlogininfo`";
+	$result = $conn->query($sql);
+	if($username != "") {
+		$existed = 0;
+	}
+
+	while($row = $result->fetch_assoc()) {
+		$currentusername = $row["username"];
+		if($currentusername == $username){ 
+			// If username exists in table
+			$existed = 1;
+			break;
+		}
+	}
+	if($existed == 0) {
+		$sql = "INSERT INTO `userlogininfo` (username, password, email)
+		VALUES ('{$username}', '{$password}', '{$email}');";
+		
+		if (!mysqli_multi_query($conn, $sql)) {
+		    echo "Error creating database: " . mysqli_error($conn);
+		}
+	}
+
+	
+
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
@@ -25,18 +66,28 @@
 					<h2>Sign Up</h2>
 				</div>
 				<div class="center">
-					<form id = "sign_up_form"  action = "">
+					<?php
+						if($existed == 1) {
+							echo "<p style=\"color: red;\">The username already existed!</p>";
+						} else if($existed == 0) {
+							echo "<p>You are signed up now!</p>";
+						}
+					?>
+					<form id = "sign_up_form"  action = "signup_page.php" method="post">
 						<label>Username</label><br>
-    					<input type="text" placeholder=" Username" id="uname" name="login_info" required><br>
+    					<input type="text" placeholder=" Username" id="uname" name="uname" required><br>
+						<label>Email</label><br>
+    					<input type="email" placeholder=" Email" id="email" name="email" required><br>
 						<label>Password</label><br>
-						<input type="password" placeholder=" Password" id="psw1" name="login_info" required><br>
+						<input type="password" placeholder=" Password" id="psw1" name="psw" required><br>
 						<label>Confirm password</label><br>
-						<input type="password" placeholder=" Confirm password" id="psw2" name="login_info" required><br>
+						<input type="password" placeholder=" Confirm password" id="psw2" required><br>
 						<br>
     					<input type="submit" value="Sign Up"></button>
 						<br>
 					</form>
 					<script type = "text/javascript" >
+						document.getElementById("psw2").onchange = chkPasswords;
 						document.getElementById("sign_up_form").onsubmit = chkPasswords;
 					</script>
 					
