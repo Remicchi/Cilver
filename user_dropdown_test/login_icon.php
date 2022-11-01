@@ -41,13 +41,12 @@
                             echo "<div class=\"dropdown\">
                             <button onclick=\"myFunction()\" class=\"dropbtn\">{$currentuser}</button>
                             <div id=\"myDropdown\" class=\"dropdown-content\">
-                              <a href=\"../index.html\">Log Out</a>
-                            </div>";
+                              <a href=\"log_out.php\">Log Out</a>
+                            </div></div>";
                         } else {
                             echo "<a href=\"../login_page/login_page.php\">Log In</a>";
                         }
                     ?>
-                    </div>
 				</nav>
 			</header>
 			<div class="content">
