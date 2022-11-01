@@ -61,7 +61,7 @@
 					<a href="../index.html">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
-					<a href="../login_page/login_page.php">Log In</a>
+                    <a href="../login_page/login_page.php">Log In</a>
 				</nav>
 			</header>
 			<div class="content">
@@ -74,6 +74,8 @@
                             // is user, log in and redirect back to index page
                             if($is_psw == 1){
                                 echo "<p style=\"color: green;\">You are logged in now. </p>";
+                                header("Location: ../index.html");
+                                die();
                             } else {
                                 echo "<p style=\"color: red;\">Invalid username or password!</p>";
                             }
