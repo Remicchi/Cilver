@@ -31,7 +31,8 @@
     echo $moviename.$chosen_seat.$taken_seat;
     $sql = "UPDATE movie_seats SET seats='{$taken_seat}' WHERE moviename='{$moviename}';";
     $result = $conn->query($sql);
-    $sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
-    VALUES ('{$username}', '{$moviename}', '{$timing}', '{$chosen_seat}', {$price}, 0);";
-        $result = $conn->query($sql);
+    $sql = "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
+        VALUES ('{$username}', '{$moviename}', '{$timing}', '{$chosen_seat}', {$price}, 0);";
+
+    $result = $conn->query($sql);
 ?>
