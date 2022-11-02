@@ -31,14 +31,12 @@ if (mysqli_query($conn, $sql)) {
 
 //Create bookings
 $sql = "CREATE TABLE IF NOT EXISTS `bookings` (
-	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	username varchar(30) NOT NULL,
 	movie varchar(64) NOT NULL,
-	day varchar(10) NOT NULL,
 	timing text NOT NULL,
-	seat varchar(3) NOT NULL,
+	seat text NOT NULL,
 	price float(16,2) NOT NULL,
-	paid int NOt NULL
+	paid int NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {
@@ -66,6 +64,18 @@ $sql = "CREATE TABLE IF NOT EXISTS `userloginstatus` (
 	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 	username varchar(30) NOT NULL,
 	status int NOT NULL
+);";
+
+if (mysqli_query($conn, $sql)) {
+    echo "The table userloginstatus has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
+//Create movie_seats
+$sql = "CREATE TABLE IF NOT EXISTS `movie_seats` (
+	moviename varchar(30) NOT NULL,
+	seats text NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {

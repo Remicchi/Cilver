@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 }
 
 // Create database
-$sql = "CREATE DATABASE IF NOT EXISTS movies";
+$sql = "CREATE DATABASE IF NOT EXISTS movies;";
 if (mysqli_query($conn, $sql)) {
     echo "The database movies has been prepared";
 } else {

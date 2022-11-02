@@ -1,4 +1,5 @@
 <?php
+	// nav bar log in php
     $is_logged = 0;
     $conn = mysqli_connect("localhost", "root", "", "movies");
     if($conn === false){
@@ -14,7 +15,29 @@
 			break;
 		}
 	}
-	
+	// gets movie info 
+    $post = array_values($_POST)[0];
+    $sql = "SELECT * FROM `movielist`";
+    $result = $conn->query($sql);
+	while($row = $result->fetch_assoc()) {
+		$currentmoviename = $row["moviename"];
+		if($currentmoviename == $post){
+			$moviename = $row["moviename"];
+			$duration = $row["duration"];
+			$cast = $row["cast"];
+			$day = $row["day"];
+			$timing = $row["timing"];
+			$description = $row["description"];
+			break;
+		}
+	}
+	// prints movie seats
+	$sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
+	$result = $conn->query($sql);
+	    while($row = $result->fetch_assoc()) {
+            $taken_seats = $row["seats"];
+	    	break;
+	    }
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -50,33 +73,7 @@
 				</nav>
 			</header>
 			<div class="content">
-				<?php
-					
-			        $conn = mysqli_connect("localhost", "root", "", "movies");
-			         
-			        // Check connection
-			        if($conn === false){
-			            die("ERROR: Could not connect. "
-			                . mysqli_connect_error());
-			        }
-			        
-   			        $post = array_values($_POST)[0];
-
-   			        $sql = "SELECT * FROM `movielist`";
-                    $result = $conn->query($sql);
-					while($row = $result->fetch_assoc()) {
-						$currentmoviename = $row["moviename"];
-						if($currentmoviename == $post){
-							$moviename = $row["moviename"];
-							$duration = $row["duration"];
-							$cast = $row["cast"];
-							$day = $row["day"];
-							$timing = $row["timing"];
-							$description = $row["description"];
-							break;
-						}
-					}	
-   			    ?>
+				
 				<div class="movie">
 					<img src="../images/<?php echo $moviename?>.png" alt="<?php echo $moviename?> Poster" target="_blank">
 				</div>
@@ -88,26 +85,33 @@
 					<p>
 						Description: <?php echo $description?>
 					</p>
-					<form>
+					<form action="add_to_cart.php" method="post">
+						<br>
+						<p style="display: inline"><b>Select a time slot: </b></p>
+						<input type="hidden" value="<?php echo "{$timing}"?>" name="timing" id="timing">
+
 						<select name="time" id="time">
-							<option value="none" selected disabled hidden>Select a time slot</option>>
-							  <option value=<?php echo "$day $timing"?>><?php echo "$day $timing"?></option>
-							  <option value="time2">time2</option>
-							  <option value="time3">time3</option>
-							  <option value="time4">time4</option>
+							<script type = "text/javascript" src = "movie_time.js"></script>
 						</select>
 						<br>
 						<br>
 						<div id="seats">
 							<h3>Select Seats Below <br></h3>
+							<label>Available: </label>
+							<input type="checkbox" class="free_seat" onclick="return false;">
+							<label>Unavailable: </label>
+							<input type="checkbox" class="taken_seat" onclick="return false;" checked>
 							<div id="screen">Screen</div>
-							<script type = "text/javascript"  src = "seats.js"></script>
+							<!-- some hidden info -->
+							<input type="hidden" value="<?php echo "{$taken_seats}"?>" name="taken_seats" id="taken_seats">
+							<input type="hidden" value="<?php echo "{$moviename}"?>" name="movie">
+							<input type="hidden" value="<?php echo "{$currentuser}"?>" name="user">
+
+							<script type = "text/javascript" src = "seats.js"></script>
+							<input type="submit" name="submit" value="Add to Cart">
 						</div>
-						<input type="submit" value="Add to Cart">
-					</form>
-                    
+					</form>                    
 				</div>
-                
 			</div>
 			<footer>
 				<small><i>Copyright &copy; 2022 Movie Place</i></small> <br>
