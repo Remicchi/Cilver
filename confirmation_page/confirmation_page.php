@@ -19,6 +19,7 @@ if ($conn->connect_error) {
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="confirmation_page.css">
 	<link rel="stylesheet" href="button.css">
+ 	<script type="text/javascript" src="button.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">

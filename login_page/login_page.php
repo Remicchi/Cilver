@@ -50,6 +50,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_page.css">
 	<link rel="stylesheet" href="button.css">
+ 	<script type="text/javascript" src="button.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
