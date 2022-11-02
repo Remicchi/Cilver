@@ -118,9 +118,10 @@
 							<input type="hidden" value="<?php echo "{$moviename}"?>" name="movie">
 							<input type="hidden" value="<?php echo "{$currentuser}"?>" name="user">
 							<input type="hidden" value="<?php echo "{$price}"?>" name="price">
-							<input type="hidden" value="<?php echo "{$timings}"?>" name="timings" id="timings">
+							<!-- <input type="hidden" value="<?php echo "{$timings}"?>" name="timings" id="timings"> -->
 							<script type = "text/javascript" src = "seats.js"></script>
-							<input type="submit" name="submit" value="Add to Cart">
+							<input type="submit" name="submit" id="submit" value="Add to Cart">
+							<!-- <input type="submit" name="submit" id="submit" value="Add to Cart" onclick='alert("Your movie booking has been added")'> -->
 						</div>
 						</form>                    
 				</div>

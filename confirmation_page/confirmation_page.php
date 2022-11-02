@@ -82,7 +82,7 @@ if ($conn->connect_error) {
                     	<th>movie</th>
                     	<th>day</th>
                     	<th>timing</th>
-                    	<th>seat</th>
+                    	<th>seat number</th>
                     	<th>price</th>
                     </tr>
 					<?php
@@ -134,7 +134,7 @@ if ($conn->connect_error) {
                     	<th>movie</th>
                     	<th>day</th>
                     	<th>timing</th>
-                    	<th>seat</th>
+                    	<th>seat number</th>
                     	<th>price</th>
                     </tr>
 					<tr> 

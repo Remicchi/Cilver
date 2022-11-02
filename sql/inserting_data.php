@@ -13,7 +13,7 @@ if (!$conn) {
 
 // insert
 $sql = "INSERT INTO `movielist` (moviename, duration, cast, day, timing, description, price)
-VALUES ('BlackAdam', 120, 'Dwayne Johnson, Aldis Hodge, Noah Centineo, Sarah Shahi, Marwan Kenzari, Quintessa Swindell', '23/10/2022', '1:00pm,7:30pm', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods -- and imprisoned just as quickly -- Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.', 15);";
+VALUES ('BlackAdam', 120, 'Dwayne Johnson, Aldis Hodge, Noah Centineo, Sarah Shahi, Marwan Kenzari, Quintessa Swindell', '23/10/2022', '1:00pm,7:30pm,10:00pm', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods -- and imprisoned just as quickly -- Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.', 15);";
 
 $sql .= "INSERT INTO `movielist` (moviename, duration, cast, day, timing, description, price)
 VALUES ('ThankGod', 120, 'Ajay Devgn, Sidharth Malhotra, Rakul Preet Singh', '23/10/2022', '1:00pm,5:00pm', 'An egoistic real estate broker in huge debts, meets with an accident. As he gains consciousness, he realizes that he is in heaven. God appears in front of him and informs him that he will have to play a “GAME OF LIFE”. If he manages to win, he will be sent back to earth and if he loses, he will be sent to hell.', 15);";
@@ -41,6 +41,10 @@ VALUES ('testusername', 'BlackAdam', 'timing', '1,15,20', 12.5, 1);";
 
 $sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
 VALUES ('BlackAdam', '1,3,10,15,17,', '1:00pm');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
+VALUES ('BlackAdam', '0,7,3,15,19,20,21,35,36,', '7:30pm');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
+VALUES ('BlackAdam', '20,21,23,24,34,35,', '10:00pm');";
 $sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
 VALUES ('ThankGod', '11,23,31,29,15,37,', '1:00pm');";
 $sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
