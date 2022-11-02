@@ -100,24 +100,41 @@ input[type='submit'] {
     align-items: center;
     width: 115px;
 }
-input[type='checkbox'] {
+.free_seat[type='checkbox'] {
     width: 25px;
     height: 20px;
 }
-input[type='checkbox']:after{
-    
+.free_seat[type='checkbox']:after{
     content: '';
     display: inline-block;
     width: 25px;
     height: 20px;
     border-radius: 0.25em;
-    background: rgb(224,224,224);
+    background-color: rgb(224,224,224);
 }
 
-input[type='checkbox']:checked:after {
+.free_seat[type='checkbox']:checked:after {
     width: 25px;
     height: 20px;
     background-color: #2196F3;
+}
+.taken_seat[type='checkbox'] {
+    width: 25px;
+    height: 20px;
+}
+.taken_seat[type='checkbox']:after{
+    content: '';
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    border-radius: 0.25em;
+    background-color: rgb(224,224,224);
+}
+.taken_seat[type='checkbox']:checked:after {
+    background: #f0540c;
+}
+label {
+    padding: 5px;
 }
 #screen {
     margin: 10px 0px;

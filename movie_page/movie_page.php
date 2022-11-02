@@ -100,6 +100,10 @@
 						<br>
 						<div id="seats">
 							<h3>Select Seats Below <br></h3>
+							<label>Available: </label>
+							<input type="checkbox" class="free_seat" onclick="return false;">
+							<label>Unavailable: </label>
+							<input type="checkbox" class="taken_seat" onclick="return false;" checked>
 							<div id="screen">Screen</div>
 							<script type = "text/javascript"  src = "seats.js"></script>
 						</div>
