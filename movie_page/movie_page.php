@@ -28,6 +28,7 @@
 			$day = $row["day"];
 			$timing = $row["timing"];
 			$description = $row["description"];
+			$price = $row["price"];
 			break;
 		}
 	}
@@ -82,6 +83,7 @@
                     <h2><?php echo $moviename ?></h2> 
                     <h3>Duration: <?php echo $duration?> minutes</h3>
                     <p><b>Cast: <?php echo $cast?></b></p>
+                    <p><b>Price: $<?php echo $price?></b></p>
 					<p>
 						Description: <?php echo $description?>
 					</p>
@@ -106,6 +108,7 @@
 							<input type="hidden" value="<?php echo "{$taken_seats}"?>" name="taken_seats" id="taken_seats">
 							<input type="hidden" value="<?php echo "{$moviename}"?>" name="movie">
 							<input type="hidden" value="<?php echo "{$currentuser}"?>" name="user">
+							<input type="hidden" value="<?php echo "{$price}"?>" name="price">
 
 							<script type = "text/javascript" src = "seats.js"></script>
 							<input type="submit" name="submit" value="Add to Cart">
