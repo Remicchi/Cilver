@@ -38,6 +38,11 @@ VALUES ('SickPhil', 0);";
 
 $sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
 VALUES ('testusername', 'BlackAdam', 'timing', '1,15,20', 12.5, 1);";
+
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('BlackAdam', '1,3,10,15,17');";
+
+
 if (mysqli_multi_query($conn, $sql)) {
     echo "Data has been inserted";
 } else {

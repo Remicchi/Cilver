@@ -72,6 +72,18 @@ if (mysqli_query($conn, $sql)) {
     echo "Error creating table: " . mysqli_error($conn);
 }
 
+//Create movie_seats
+$sql = "CREATE TABLE IF NOT EXISTS `movie_seats` (
+	moviename varchar(30) NOT NULL,
+	seats text NOT NULL
+);";
+
+if (mysqli_query($conn, $sql)) {
+    echo "The table userloginstatus has been prepared<br>";
+} else {
+    echo "Error creating table: " . mysqli_error($conn);
+}
+
 //Create jobapplication
 $sql = "CREATE TABLE IF NOT EXISTS `jobapplication` (
 	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
