@@ -36,8 +36,8 @@ VALUES ('SickPhil', 'UnhackablePassword','Sick.Phil@email.com');";
 $sql .= "INSERT INTO `userloginstatus` (username, status)
 VALUES ('SickPhil', 0);";
 
-$sql .= "INSERT INTO `bookings` (id, username, movie, day, timing, seat, price, paid)
-VALUES (1, 'testusername', 'BlackAdam', 'day', 'timing', '1,15,20', 12.5, 1);";
+$sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
+VALUES ('testusername', 'BlackAdam', 'timing', '1,15,20', 12.5, 1);";
 if (mysqli_multi_query($conn, $sql)) {
     echo "Data has been inserted";
 } else {
