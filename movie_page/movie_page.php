@@ -32,17 +32,19 @@
 			break;
 		}
 	}
+	// gets time info and prints seats accordingly
+	if(isset($_POST['time'])) {
+		$selected_time = $_POST['time'];
+		$sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}' and time='$selected_time';";
+	} else {
+		$sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
+	}
 	// prints movie seats
-	$sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
 	$result = $conn->query($sql);
 	    while($row = $result->fetch_assoc()) {
             $taken_seats = $row["seats"];
 	    	break;
 	    }
-	// gets time info and prints seats accordingly
-	if(isset($_POST['time'])) {
-		$selected_time = $_POST['time'];
-	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

@@ -29,7 +29,7 @@
         $taken_seat .= $chosen_seat;
     }
     echo $moviename.$chosen_seat.$taken_seat;
-    $sql = "UPDATE movie_seats SET seats='{$taken_seat}' WHERE moviename='{$moviename}';";
+    $sql = "UPDATE movie_seats SET seats='{$taken_seat}' WHERE moviename='{$moviename}' and time='{$timing}';";
     $result = $conn->query($sql);
     if(!empty($_POST['seats'])){
         $sql = "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
