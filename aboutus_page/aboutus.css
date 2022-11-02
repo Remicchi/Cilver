@@ -39,6 +39,7 @@ h2 {
     color: #e7e7dc; 
     font-family: arial, sans-serif;
     font-size:200%;
+    margin-left: 32%;
 }
 .content {
     padding: 3%; 
@@ -65,9 +66,6 @@ h2 {
     left: 5%;
 }
 
-h2 {
-    margin-left:31%;
-}
 
 .row1 p {
     margin-left:30%;
