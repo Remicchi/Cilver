@@ -43,14 +43,32 @@
 		}
 	}
 ?>
+<?php
+    $is_logged = 0;
+    $conn = mysqli_connect("localhost", "root", "", "movies");
+    if($conn === false){
+	    die("ERROR: Could not connect. "
+	        . mysqli_connect_error());
+	}
+    $sql = "SELECT * FROM `userloginstatus`";
+    $result = $conn->query($sql);
+	while($row = $result->fetch_assoc()) {
+		if($row["username"]){ 
+            $currentuser = $row["username"];
+			$is_logged = 1;
+			break;
+		}
+	}
+	
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_page.css">
-	<link rel="stylesheet" href="button.css">
- 	<script type="text/javascript" src="button.js"></script>
+	<link rel="stylesheet" href="../header_login/button.css">
+ 	<script type="text/javascript" src="../header_login/button.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -68,7 +86,7 @@
                             echo "<div class=\"dropdown\">
                             <button onclick=\"myFunction()\" class=\"dropbtn\">{$currentuser}</button>
                             <div id=\"myDropdown\" class=\"dropdown-content\">
-                              <a href=\"log_out.php\">Log Out</a>
+                              <a href=\"../header_login/log_out.php\">Log Out</a>
                             </div></div>";
                         } else {
                             echo "<a href=\"../login_page/login_page.php\">Log In</a>";
