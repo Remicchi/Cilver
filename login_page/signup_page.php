@@ -39,6 +39,7 @@
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_page.css">
+	<link rel="stylesheet" href="button.css">
 	<script type="text/javascript" src="psw_check.js"></script>
 	</head>
 	<body>

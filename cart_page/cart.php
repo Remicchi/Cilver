@@ -18,6 +18,7 @@ if ($conn->connect_error) {
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="cart.css">
+	<link rel="stylesheet" href="button.css">
 	</head>
 	<body>
 		<div id="wrapper">

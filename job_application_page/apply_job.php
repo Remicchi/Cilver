@@ -4,6 +4,7 @@
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="job_application.css">
+	<link rel="stylesheet" href="button.css">
 	</head>
 	<body>
 		<div id="wrapper">
