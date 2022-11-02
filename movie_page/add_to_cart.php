@@ -33,6 +33,7 @@
     $result = $conn->query($sql);
     $sql = "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
         VALUES ('{$username}', '{$moviename}', '{$timing}', '{$chosen_seat}', {$price}, 0);";
-
     $result = $conn->query($sql);
+    header("Location: ../cart_page/cart.php");
+    die();
 ?>
