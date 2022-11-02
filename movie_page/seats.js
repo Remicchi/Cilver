@@ -10,10 +10,10 @@
             // if array_val == 1, print a box
             // if array_val == 0, print a checkbox
             if (test_arr[counter] == 1) {
-                document.write("<input type=\"checkbox\" onclick=\"return false;\" class=\"taken_seat\" checked>");
+                document.write("<input type=\"checkbox\" onclick=\"return false;\" class=\"taken_seat\" checked value=\""+counter+"\">");
                 document.write("  <span></span>");
             } else {
-                document.write("<input type=\"checkbox\" class=\"free_seat\">");
+                document.write("<input type=\"checkbox\" class=\"free_seat\" value=\""+counter+"\">");
                 document.write("  <span></span>");
             }
             counter ++;

@@ -106,12 +106,10 @@
 							<input type="checkbox" class="taken_seat" onclick="return false;" checked>
 							<div id="screen">Screen</div>
 							<script type = "text/javascript"  src = "seats.js"></script>
+							<input type="submit" value="Add to Cart">
 						</div>
-						<input type="submit" value="Add to Cart">
-					</form>
-                    
+					</form>                    
 				</div>
-                
 			</div>
 			<footer>
 				<small><i>Copyright &copy; 2022 Movie Place</i></small> <br>
