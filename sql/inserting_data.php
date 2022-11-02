@@ -37,7 +37,7 @@ $sql .= "INSERT INTO `userloginstatus` (username, status)
 VALUES ('SickPhil', 0);";
 
 $sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
-VALUES ('testusername', 'BlackAdam', 'timing', '1,15,20', 12.5, 1);";
+VALUES ('testusername', 'BlackAdam', '1:00pm', '1,15,20', 15.0, 1);";
 
 $sql .= "INSERT INTO `movie_seats` (moviename, seats, time)
 VALUES ('BlackAdam', '1,3,10,15,17,', '1:00pm');";

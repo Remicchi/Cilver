@@ -13,7 +13,7 @@
     if(isset($_POST['submit'])){//to run PHP script on submit
         $moviename = $_POST['movie'];
         // Selects movie seats from database
-        $sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
+        $sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}' and time='{$timing}';";
         $result = $conn->query($sql);
 	    while($row = $result->fetch_assoc()) {
             $taken_seat = $row["seats"];
