@@ -36,9 +36,9 @@ $sql = "CREATE TABLE IF NOT EXISTS `bookings` (
 	movie varchar(64) NOT NULL,
 	day varchar(10) NOT NULL,
 	timing text NOT NULL,
-	seat varchar(3) NOT NULL,
+	seat text NOT NULL,
 	price float(16,2) NOT NULL,
-	paid int NOt NULL
+	paid int NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {
