@@ -28,7 +28,14 @@ if ($conn->connect_error) {
 			break;
 		}
 	}
-	
+	$recipient="Sick.Phil@email.com";
+	$subject="Test Email";
+	$mail_body="You have booked the following movies.";
+	$headers = 'From: root@localhost' . "\r\n" .
+	 	'Reply-To: root@localhost' . "\r\n" .
+	 	'X-Mailer: PHP/' . phpversion();
+	mail($recipient, $subject, $mail_body, $headers, '-root@localhost');
+	echo ("mail sent to: ".$recipient);
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

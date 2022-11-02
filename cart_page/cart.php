@@ -80,7 +80,7 @@ if ($conn->connect_error) {
 	                    $result = $conn->query($sql);
 	                    $checkTable = 0;
 						while($row = $result->fetch_assoc()) {
-							if($row["paid"] = 0){
+							if($row["paid"] == 0){
 								$checkTable =1;
 								break;
 							}
@@ -113,7 +113,11 @@ if ($conn->connect_error) {
 	                    echo "</tr>";
 		                ?>
 		            </table>
-		        <input type="submit" class="form-submit-button" name="submit" value="Submit" style="float: right; margin-right: 13%" />
+		        <?php
+		        if($checkTable) { 
+		        	echo "<input type='submit' class='form-submit-button' name='submit' value='Submit' style='float: right; margin-right: 13%' />";
+		        }
+		        ?>
 		        </form>
 			</div>
 			<footer>
