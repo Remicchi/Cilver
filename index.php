@@ -77,7 +77,7 @@ if ($conn->connect_error) {
 					echo "<div class='movie'>";
 					echo "<form id='formName' name='formName' method='post' action='movie_page/movie_page.php'>";
 					echo "<input type='hidden' value='$array[$i]' name='movie'>";
-					echo "<input type='image' style='width: 100%;' name='submit' src='images/$array[$i].png' alt='BA' alt='Submit'/>";
+					echo "<input type='image' style='width: 100%;' name='submit' src='images/$array[$i].png' alt='$array[$i]' alt='Submit'/>";
 					echo "<p>$array[$i]</p>";
 					echo "</form>";
 					echo "</div>";
