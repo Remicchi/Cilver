@@ -49,7 +49,7 @@ if ($conn->connect_error) {
 				<nav>
 					<a href="../index.php">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
-					<a href="../aboutus_page/aboutus.html">About Us</a>
+					<a href="../aboutus_page/aboutus.php">About Us</a>
 					<?php
                         if($is_logged == 1) {
                             echo "<div class=\"dropdown\">
