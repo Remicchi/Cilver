@@ -50,9 +50,10 @@
 				</nav>
 			</header>
 			<div class="content">
+				<h2>About Us</h2>
+
 				<div class="row1">
 					<img src="../images/aboutuspic.png" alt="aboutuspic" target="_blank">
-					<h2>About Us</h2>
 					<p>Cilver Cinemas Pte Ltd is a classic Singapore cinema. Come to our cozy cinemas, where you can enjoy movie screenings all day. We pride ourselves on our quality screening system and superb customer service. Cilver has a reputation of offering the latest movies, convenience and the most comfortable seats, with one of the newest cinemas newly refurbished in 2022. <br> <br>
 
 					Established in 2001, Cilver is an independent film distributor based in Singapore, releasing a wide range of blockbusters movies from from Hollywood to Asian dramas, etc. Cilver also screens local films. <br> <br>
