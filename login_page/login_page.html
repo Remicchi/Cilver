@@ -24,14 +24,16 @@
 					<h2>Login</h2>
 				</div>
 				<div class="center">
-					<label>Username</label><br>
-    				<input type="text" placeholder=" Username" id="uname" name="login_info" required><br>
-					<label>Password</label><br>
-					<input type="password" placeholder=" Password" id="psw" name="login_info" required><br>
-					<br>
-    				<input type="submit" value="Login"></button>
-					<br>
-    				<p>Not a member? <a href="signup_page.html">Sign Up Here!</a></p>
+					<form id = "login_form"  action = "login.php" method="post">
+						<label>Username</label><br>
+    					<input type="text" placeholder=" Username" id="uname" name="login_info" required><br>
+						<label>Password</label><br>
+						<input type="password" placeholder=" Password" id="psw" name="login_info" required><br>
+						<br>
+    					<input type="submit" value="Login"></button>
+						<br>
+					</form>
+    				<p>Not a member? <a href="signup_page.php">Sign Up Here!</a></p>
 				</div>
 			</div>
 			<footer>

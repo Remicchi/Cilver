@@ -1,11 +1,11 @@
 <?php
 	// create short variable names
-	$existed = -1;
+	$is_user = -1;
 	if(isset($_POST['uname'])) {
-		$existed = 0;
+		$is_user = 0;
+        $is_psw = 0;
 		$username = $_POST['uname'];
 		$password = $_POST['psw'];
-		$email = $_POST['email'];	
 		$conn = mysqli_connect("localhost", "root", "", "movies");
 				         
 		// Check connection
@@ -17,15 +17,25 @@
 		$result = $conn->query($sql);
 		while($row = $result->fetch_assoc()) {
 			$currentusername = $row["username"];
+            $currentpsw = $row["password"];
 			if($currentusername == $username){ 
 				// If username exists in table
-				$existed = 1;
+				$is_user = 1;
+                if($password == $currentpsw) {
+                    $is_psw = 1;
+                }
 				break;
 			}
 		}
-		if($existed == 0) {
-			$sql = "INSERT INTO `userlogininfo` (username, password, email)
-			VALUES ('{$username}', '{$password}', '{$email}');";
+        if($is_psw == 1) {
+            $sql = "DROP TABLE IF EXISTS userloginstatus;";
+            $sql .= "CREATE TABLE IF NOT EXISTS `userloginstatus` (
+                id int UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+                username varchar(30) NOT NULL,
+                status int NOT NULL
+            );";
+			$sql .= "INSERT INTO `userloginstatus` (username, status)
+            VALUES ('{$username}', 1);";
 
 			if (!mysqli_multi_query($conn, $sql)) {
 			    echo "Error creating database: " . mysqli_error($conn);
@@ -39,7 +49,6 @@
 	<title>BruhMilk Tea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="login_page.css">
-	<script type="text/javascript" src="psw_check.js"></script>
 	</head>
 	<body>
 		<div id="wrapper">
@@ -52,40 +61,39 @@
 					<a href="../index.html">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
-					<a href="../login_page/login_page.html">Log In</a>
+                    <a href="../login_page/login_page.php">Log In</a>
 				</nav>
 			</header>
 			<div class="content">
 				<div class="center">
-					<h2>Sign Up</h2>
+					<h2>Login</h2>
 				</div>
 				<div class="center">
-					<?php
-						if($existed == 1) {
-							echo "<p style=\"color: red;\">The username already existed!</p>";
-						} else if($existed == 0) {
-							echo "<p>You are signed up now!</p>";
+                    <?php
+						if($is_user == 1) {
+                            // is user, log in and redirect back to index page
+                            if($is_psw == 1){
+                                echo "<p style=\"color: green;\">You are logged in now. </p>";
+                                header("Location: ../index.html");
+                                die();
+                            } else {
+                                echo "<p style=\"color: red;\">Invalid username or password!</p>";
+                            }
+							
+						} else if($is_user == 0) {
+							echo "<p style=\"color: red;\">You are not a user!</p>";
 						}
 					?>
-					<form id = "sign_up_form"  action = "signup_page.php" method="post">
+					<form id = "login_form"  action = "login_page.php" method="post">
 						<label>Username</label><br>
     					<input type="text" placeholder=" Username" id="uname" name="uname" required><br>
-						<label>Email</label><br>
-    					<input type="email" placeholder=" Email" id="email" name="email" required><br>
 						<label>Password</label><br>
-						<input type="password" placeholder=" Password" id="psw1" name="psw" required><br>
-						<label>Confirm password</label><br>
-						<input type="password" placeholder=" Confirm password" id="psw2" required><br>
+						<input type="password" placeholder=" Password" id="psw" name="psw" required><br>
 						<br>
-    					<input type="submit" value="Sign Up"></button>
+    					<input type="submit" value="Login"></button>
 						<br>
 					</form>
-					<script type = "text/javascript" >
-						document.getElementById("psw2").onchange = chkPasswords;
-						document.getElementById("sign_up_form").onsubmit = chkPasswords;
-					</script>
-					
-    				<p>Have an account? <a href="login_page.html">Log in Here!</a></p>
+    				<p>Not a member? <a href="signup_page.php">Sign Up Here!</a></p>
 				</div>
 			</div>
 			<footer>

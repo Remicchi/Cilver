@@ -85,7 +85,8 @@ input[type='submit'] {
     width: 115px;
     margin: 5px;
 }
-input[name="login_info"] {
+
+input {
     width: 250px;
     height: 25px;
     border: none;

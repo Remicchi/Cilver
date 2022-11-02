@@ -30,8 +30,8 @@ VALUES ('Ticket to Paradise', 104, 'George Clooney, Julia Roberts, Kaitlyn Dever
 $sql .= "INSERT INTO `movielist` (moviename, duration, cast, day, timing, description, price)
 VALUES ('Wandering', 150, 'Suzu Hirose, Tori Matsuzaka, Ryusei Yokohama, Mikako Tabe', '23/10/2022', '10:00pm', 'In a park on a rainy evening, a 19-year-old university student, Fumi, offers an umbrella to a soaking wet 10-year-old girl, Sarasa. Realizing her reluctance to go home, Fumi lets her stay in his place, where she spends the next two months in peace. They take each other hands and seem to have finally found their place in the world until Fumi is arrested for kidnapping. Fifteen years later, the lonely two are reunited both still suffering from the stigma as the victim and perpetrator of “a pedophile case”. Will the society give a place to their unshakable bond they have formed.', 15);";
 
-$sql .= "INSERT INTO `userlogininfo` (username, password)
-VALUES ('SickPhil', 'UnhackablePassword');";
+$sql .= "INSERT INTO `userlogininfo` (username, password, email)
+VALUES ('SickPhil', 'UnhackablePassword','Sick.Phil@email.com');";
 
 $sql .= "INSERT INTO `userloginstatus` (username, status)
 VALUES ('SickPhil', 0);";
