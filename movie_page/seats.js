@@ -11,13 +11,12 @@
             // if array_val == 1, print a box
             // if array_val == 0, print a checkbox
             if (test_arr.includes(seat_counter)) {
-                document.write("<input type=\"checkbox\" onclick=\"return false;\" class=\"taken_seat\" checked value=\""+arr_counter+"\">");
-                document.write("  <span></span>");
+                document.write("<input type=\"checkbox\" onclick=\"return false;\" class=\"taken_seat\" checked/>");
                 arr_counter++;
             } else {
-                document.write("<input type=\"checkbox\" class=\"free_seat\" value=\""+arr_counter+"\">");
-                document.write("  <span></span>");
+                document.write("<input type=\"checkbox\" name=\"seats[]\" class=\"free_seat\" value=\""+seat_counter+"\"/>");
             }
+            document.write("<span> </span>");
             seat_counter ++;
         }
         document.write("<br>");

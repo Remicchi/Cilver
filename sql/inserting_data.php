@@ -40,7 +40,17 @@ $sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
 VALUES ('testusername', 'BlackAdam', 'timing', '1,15,20', 12.5, 1);";
 
 $sql .= "INSERT INTO `movie_seats` (moviename, seats)
-VALUES ('BlackAdam', '1,3,10,15,17');";
+VALUES ('BlackAdam', '1,3,10,15,17,');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('ThankGod', '11,23,31,29,15,37,');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('Smile', '1,3,13,20,15,16,27,');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('Halloween Ends', '1,3,10,36,27,15,17,');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('Ticket to Paradise', '1,3,18,38,15,17,');";
+$sql .= "INSERT INTO `movie_seats` (moviename, seats)
+VALUES ('Wandering', '1,4,3,15,20,30,17,');";
 
 
 if (mysqli_multi_query($conn, $sql)) {
