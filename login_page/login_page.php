@@ -53,12 +53,12 @@
 	<body>
 		<div id="wrapper">
 			<header>
-				<a href="../index.html">
+				<a href="../index.php">
 				<img src="../images/logo.png" alt="logo?" target="_blank" width="100%"
 				title="JavaJam" alt="JavaJam"/>
 				</a>
 				<nav>
-					<a href="../index.html">Home</a>
+					<a href="../index.php">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
                     <a href="../login_page/login_page.php">Log In</a>
@@ -74,7 +74,7 @@
                             // is user, log in and redirect back to index page
                             if($is_psw == 1){
                                 echo "<p style=\"color: green;\">You are logged in now. </p>";
-                                header("Location: ../index.html");
+                                header("Location: ../index.php");
                                 die();
                             } else {
                                 echo "<p style=\"color: red;\">Invalid username or password!</p>";

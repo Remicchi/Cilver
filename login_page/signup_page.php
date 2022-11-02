@@ -44,15 +44,15 @@
 	<body>
 		<div id="wrapper">
 			<header>
-				<a href="../index.html">
+				<a href="../index.php">
 				<img src="../images/logo.png" alt="logo?" target="_blank" width="100%"
 				title="JavaJam" alt="JavaJam"/>
 				</a>
 				<nav>
-					<a href="../index.html">Home</a>
+					<a href="../index.php">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
-					<a href="../login_page/login_page.html">Log In</a>
+					<a href="../login_page/login_page.php">Log In</a>
 				</nav>
 			</header>
 			<div class="content">
@@ -85,7 +85,7 @@
 						document.getElementById("sign_up_form").onsubmit = chkPasswords;
 					</script>
 					
-    				<p>Have an account? <a href="login_page.html">Log in Here!</a></p>
+    				<p>Have an account? <a href="login_page.php">Log in Here!</a></p>
 				</div>
 			</div>
 			<footer>

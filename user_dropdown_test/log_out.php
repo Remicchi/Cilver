@@ -6,6 +6,6 @@
 	}
     $sql = "DELETE FROM `userloginstatus`;";
     $result = $conn->query($sql);
-	header("Location: ../index.html");
+	header("Location: ../index.php");
 	die();
 ?>
