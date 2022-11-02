@@ -26,7 +26,7 @@
 			$duration = $row["duration"];
 			$cast = $row["cast"];
 			$day = $row["day"];
-			$timing = $row["timing"];
+			$timings = $row["timing"]; // the timing here is a string
 			$description = $row["description"];
 			$price = $row["price"];
 			break;
@@ -39,16 +39,20 @@
             $taken_seats = $row["seats"];
 	    	break;
 	    }
+	// gets time info and prints seats accordingly
+	if(isset($_POST['time'])) {
+		$selected_time = $_POST['time'];
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
-	<title>BruhMilk Tea</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="movie_page.css">
-	<link rel="stylesheet" href="../header_login/button.css">
- 	<script type="text/javascript" src="../header_login/button.js"></script>
-	</head>
+		<title>BruhMilk Tea</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="movie_page.css">
+		<link rel="stylesheet" href="../header_login/button.css">
+ 		<script type="text/javascript" src="../header_login/button.js"></script>
+		</head>
 	<body>
 		<div id="wrapper">
 			<header>
@@ -87,16 +91,21 @@
 					<p>
 						Description: <?php echo $description?>
 					</p>
-					<form action="add_to_cart.php" method="post">
+					<!-- form 1 -->
+					<form action="movie_page.php" method="post">
 						<br>
 						<p style="display: inline"><b>Select a time slot: </b></p>
-						<input type="hidden" value="<?php echo "{$timing}"?>" name="timing" id="timing">
-
-						<select name="time" id="time">
+						<input type="hidden" value="<?php echo "{$moviename}"?>" name="moviename">
+						<input type="hidden" value="<?php echo "{$timings}"?>" name="timings" id="timings">
+						<input type="hidden" value="<?php echo "{$selected_time}"?>" name="timing" id="selected_time">
+						<select name="time" id="time" onchange="this.form.submit()">
 							<script type = "text/javascript" src = "movie_time.js"></script>
 						</select>
+					</form>
 						<br>
 						<br>
+						<!-- form 2 -->
+						<form action="add_to_cart.php" method="post">
 						<div id="seats">
 							<h3>Select Seats Below <br></h3>
 							<label>Available: </label>
@@ -109,11 +118,11 @@
 							<input type="hidden" value="<?php echo "{$moviename}"?>" name="movie">
 							<input type="hidden" value="<?php echo "{$currentuser}"?>" name="user">
 							<input type="hidden" value="<?php echo "{$price}"?>" name="price">
-
+							<input type="hidden" value="<?php echo "{$timings}"?>" name="timings" id="timings">
 							<script type = "text/javascript" src = "seats.js"></script>
 							<input type="submit" name="submit" value="Add to Cart">
 						</div>
-					</form>                    
+						</form>                    
 				</div>
 			</div>
 			<footer>

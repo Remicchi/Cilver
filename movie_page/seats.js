@@ -20,6 +20,7 @@
         }
         document.write("<br>");
     }
+    // document.getElementById("time").addEventListener("change", myFunction);
 
 
     // function contains(a, b) {
