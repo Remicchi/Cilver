@@ -35,7 +35,7 @@
 	$sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
 	$result = $conn->query($sql);
 	    while($row = $result->fetch_assoc()) {
-            $seats = $row["seats"];
+            $taken_seats = $row["seats"];
 	    	break;
 	    }
 ?>
@@ -102,6 +102,8 @@
 							<label>Unavailable: </label>
 							<input type="checkbox" class="taken_seat" onclick="return false;" checked>
 							<div id="screen">Screen</div>
+							<!-- some hidden info -->
+							<input type="hidden" value="<?php echo "{$taken_seats}"?>" name="taken_seats" id="taken_seats">
 							<input type="hidden" value="<?php echo "{$moviename}"?>" name="movie" >
 							<input type="hidden" value="<?php echo "{$currentuser}"?>" name="user" >
 							<script type = "text/javascript"  src = "seats.js"></script>
