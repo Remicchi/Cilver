@@ -1,4 +1,7 @@
 <?php
+    $username = $_POST["user"];
+    $timing = $_POST["time"];
+    $price = $_POST["price"];
     // SQL connection
     $conn = mysqli_connect("localhost", "root", "", "movies");
     if($conn === false){
@@ -13,7 +16,7 @@
         $sql = "SELECT * FROM movie_seats WHERE moviename='{$moviename}';";
         $result = $conn->query($sql);
 	    while($row = $result->fetch_assoc()) {
-            $chosen_seat = $row["seats"];
+            $taken_seat = $row["seats"];
 	    	break;
 	    }
         if(!empty($_POST['seats'])){
@@ -23,12 +26,14 @@
                 $chosen_seat .= $selected.",";
             }
         }
+        $taken_seat .= $chosen_seat;
     }
-    echo $moviename.$chosen_seat;
-    $sql = "UPDATE movie_seats SET seats='{$chosen_seat}' WHERE moviename='{$moviename}';";
-	
-    // $sql = "INSERT INTO `movie_seats` (moviename, seats)
-    // VALUES ('{$moviename}',\"{$chosen_seat}\");";
+    echo $moviename.$chosen_seat.$taken_seat;
+    $sql = "UPDATE movie_seats SET seats='{$taken_seat}' WHERE moviename='{$moviename}';";
     $result = $conn->query($sql);
-	
+    $sql = "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
+        VALUES ('{$username}', '{$moviename}', '{$timing}', '{$chosen_seat}', {$price}, 0);";
+    $result = $conn->query($sql);
+    header("Location: ../cart_page/cart.php");
+    die();
 ?>

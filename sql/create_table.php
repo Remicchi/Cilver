@@ -75,7 +75,8 @@ if (mysqli_query($conn, $sql)) {
 //Create movie_seats
 $sql = "CREATE TABLE IF NOT EXISTS `movie_seats` (
 	moviename varchar(30) NOT NULL,
-	seats text NOT NULL
+	seats text NOT NULL,
+	time text NOT NULL
 );";
 
 if (mysqli_query($conn, $sql)) {

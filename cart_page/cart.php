@@ -100,7 +100,7 @@ if ($conn->connect_error) {
 			                    echo "<td>".$row["movie"]."</td>";
 			                    echo "<td>".$row["day"]."</td>";
 			                    echo "<td>".$row["timing"]."</td>";
-			                    echo "<td>".$row["seat"]."</td>";
+			                    echo "<td>".trim($row["seat"],",")."</td>";
 			                    echo "<td>".$row["price"]."</td>";
 			                    echo "</tr>";
 			                    $total += $row["price"];
