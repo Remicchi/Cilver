@@ -18,7 +18,17 @@
 					<a href="../index.php">Home</a>
 					<a href="../cart_page/cart.php">Cart</a>
 					<a href="../aboutus_page/aboutus.html">About Us</a>
-					<a href="../login_page/login_page.php">Log In</a>
+					<?php
+                        if($is_logged == 1) {
+                            echo "<div class=\"dropdown\">
+                            <button onclick=\"myFunction()\" class=\"dropbtn\">{$currentuser}</button>
+                            <div id=\"myDropdown\" class=\"dropdown-content\">
+                              <a href=\"log_out.php\">Log Out</a>
+                            </div></div>";
+                        } else {
+                            echo "<a href=\"../login_page/login_page.php\">Log In</a>";
+                        }
+                    ?>
 				</nav>
 			</header>
 			<div class="content">
