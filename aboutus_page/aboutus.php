@@ -67,7 +67,7 @@
 				</div>
 				<div class="row2">
 					<div class="contactjoin">
-						<a href="../contactus_page/contactus.html">
+						<a href="../contactus_page/contactus.php">
 							<img src="../images/contactus.png" alt="contactus" target="_blank">
 							<p>Contact Us</p>
 						</a>
