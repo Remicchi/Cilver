@@ -83,7 +83,7 @@ if ($conn->connect_error) {
 	                    $result = $conn->query($sql);
 	                    $checkTable = 0;
 						while($row = $result->fetch_assoc()) {
-							if($row["paid"] == 0){
+							if($row["paid"] == 0 and $row['username'] == $currentuser){
 								$checkTable =1;
 								break;
 							}
@@ -97,7 +97,7 @@ if ($conn->connect_error) {
 						$index=1;
 						$total=0;
 						while($row = $result->fetch_assoc()) {
-							if($row["paid"]==0){
+							if($row["paid"]==0 and $row['username'] == $currentuser){
 								$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
 			                    echo "<tr>";
 			                    echo "<td>".$index."</td>";

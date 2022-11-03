@@ -91,37 +91,40 @@ if ($conn->connect_error) {
 					<?php
                     $sql = "SELECT * FROM `bookings`";
                     $result = $conn->query($sql);
-					$checkTable = mysqli_fetch_array($result, MYSQLI_ASSOC);
-					if($checkTable) {
-						$result = $conn->query($sql);
-						$index=1;
-						$total=0;
-						while($row = $result->fetch_assoc()) {
-							if($row["paid"]==0){
-								$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
-			                    echo "<tr>";
-			                    echo "<td>".$index."</td>";
-			                    echo "<td>".$row["movie"]."</td>";
-			                    echo "<td>".$row["timing"]."</td>";
-			                    echo "<td>".trim($row["seat"],",")."</td>";
-			                    echo "<td>$".$price."</td>";
-			                    echo "</tr>";
-			                    $id=$row["id"];
-			                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
-								$stmt= $conn->prepare($sql);
-								$stmt->bind_param("i", $id);
-								$stmt->execute();
-			                
-							
-			                    $total += $price;
-			                    $index++;
-			                }
-		                }
+					while($row = $result->fetch_assoc()) {
+						if($row["paid"] == 0 and $row['username'] == $currentuser){
+							$checkTable =1;
+							break;
+						}
 					}
-					if(!$checkTable or $index == 1){
+					if(! $checkTable) {
 						echo "<tr>";
                         echo "<td colspan='5'>Cart is empty, please go back and add items to cart</td>";
                         echo "</tr>";
+					}
+					$result = $conn->query($sql);
+					$index=1;
+					$total=0;
+					while($row = $result->fetch_assoc()) {
+						if($row["paid"]==0 and $row['username'] == $currentuser){
+							$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
+		                    echo "<tr>";
+		                    echo "<td>".$index."</td>";
+		                    echo "<td>".$row["movie"]."</td>";
+		                    echo "<td>".$row["timing"]."</td>";
+		                    echo "<td>".trim($row["seat"],",")."</td>";
+		                    echo "<td>$".$price."</td>";
+		                    echo "</tr>";
+		                    $id=$row["id"];
+		                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
+							$stmt= $conn->prepare($sql);
+							$stmt->bind_param("i", $id);
+							$stmt->execute();
+		                
+						
+		                    $total += $price;
+		                    $index++;
+		                }
 					}
                     echo "<tr>";
                     echo "<td colspan='4'></td>";
