@@ -60,7 +60,6 @@
 					<form name="form" method="post" action="apply_job.php">
 						<table>
 							<tr>
-								<h3>Contact Us</h3>
 								<p>Want to work at Cilver? Fill out the form below to start your application. Required fields are marked with an asterisk *</p></tr>
 							<tr>
 								<th>*Name: </th>
