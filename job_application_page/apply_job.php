@@ -70,12 +70,6 @@
    			        $email = array_values($_POST)[2];
    			        $startdate = array_values($_POST)[3];
    			        $experience = array_values($_POST)[4];
-   			       	echo array_values($_POST)[0];
-   			        echo array_values($_POST)[1];
-   			        echo array_values($_POST)[2];
-   			        echo array_values($_POST)[3];
-   			        echo array_values($_POST)[4];
-
 
 			        // Performing insert query execution
 			        $sql = "INSERT INTO `jobapplication` (username, phone, email, startdate, experience) VALUES ('$name', '$phone', '$email', '$startdate', '$experience')";
