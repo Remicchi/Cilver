@@ -70,7 +70,6 @@ if ($conn->connect_error) {
 						<tr>
 	                    	<th>id</th>
 	                    	<th>movie</th>
-	                    	<th>day</th>
 	                    	<th>timing</th>
 	                    	<th>seat number</th>
 	                    	<th>price</th>
@@ -95,20 +94,20 @@ if ($conn->connect_error) {
 						$total=0;
 						while($row = $result->fetch_assoc()) {
 							if($row["paid"]==0){
+								$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
 			                    echo "<tr>";
 			                    echo "<td>".$index."</td>";
 			                    echo "<td>".$row["movie"]."</td>";
-			                    echo "<td>".$row["day"]."</td>";
 			                    echo "<td>".$row["timing"]."</td>";
 			                    echo "<td>".trim($row["seat"],",")."</td>";
-			                    echo "<td>".$row["price"]."</td>";
+			                    echo "<td>$".$price."</td>";
 			                    echo "</tr>";
-			                    $total += $row["price"];
+			                    $total += $price;
 			                    $index++;
 			                }
 		                }
 	                    echo "<tr>";
-	                    echo "<td colspan='5'></td>";
+	                    echo "<td colspan='4'></td>";
 	                    echo "<td> Total = $".sprintf('%.2f', $total)."</td>";
 	                    echo "</tr>";
 		                ?>

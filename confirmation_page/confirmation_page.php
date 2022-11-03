@@ -71,16 +71,15 @@ if ($conn->connect_error) {
 				</nav>
 			</header>
 			<div class="content">
-				<h2>Cart Summary</h2>
+				<h2>Order Summary</h2>
 				<p>A confirmation email has been sent to your inbox.</p>
 				<table class="report-table">
 					<tr>
-					<th colspan="6">The Following Orders are Successful</th>
+					<th colspan="5">The Following Orders are Successful</th>
 					</tr>
 					<tr>
                     	<th>id</th>
                     	<th>movie</th>
-                    	<th>day</th>
                     	<th>timing</th>
                     	<th>seat number</th>
                     	<th>price</th>
@@ -89,37 +88,39 @@ if ($conn->connect_error) {
                     $sql = "SELECT * FROM `bookings`";
                     $result = $conn->query($sql);
 					$checkTable = mysqli_fetch_array($result, MYSQLI_ASSOC);
-					if(! $checkTable) {
-							echo "<tr>";
-	                        echo "<td colspan='6'>Cart is empty, please go back and add items to cart</td>";
-	                        echo "</tr>";
-					}
-					$result = $conn->query($sql);
-					$index=1;
-					$total=0;
-					while($row = $result->fetch_assoc()) {
-						if($row["paid"]==0){
-		                    echo "<tr>";
-		                    echo "<td>".$index."</td>";
-		                    echo "<td>".$row["movie"]."</td>";
-		                    echo "<td>".$row["day"]."</td>";
-		                    echo "<td>".$row["timing"]."</td>";
-		                    echo "<td>".$row["seat"]."</td>";
-		                    echo "<td>".$row["price"]."</td>";
-		                    echo "</tr>";
-		                    $id=$row["id"];
-		                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
-							$stmt= $conn->prepare($sql);
-							$stmt->bind_param("i", $id);
-							$stmt->execute();
-		                
-						
-		                    $total += $row["price"];
-		                    $index++;
+					if($checkTable) {
+						$result = $conn->query($sql);
+						$index=1;
+						$total=0;
+						while($row = $result->fetch_assoc()) {
+							if($row["paid"]==0){
+								$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
+			                    echo "<tr>";
+			                    echo "<td>".$index."</td>";
+			                    echo "<td>".$row["movie"]."</td>";
+			                    echo "<td>".$row["timing"]."</td>";
+			                    echo "<td>".trim($row["seat"],",")."</td>";
+			                    echo "<td>$".$price."</td>";
+			                    echo "</tr>";
+			                    $id=$row["id"];
+			                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
+								$stmt= $conn->prepare($sql);
+								$stmt->bind_param("i", $id);
+								$stmt->execute();
+			                
+							
+			                    $total += $price;
+			                    $index++;
+			                }
 		                }
-	                }
+					}
+					if(!$checkTable or $index == 1){
+						echo "<tr>";
+                        echo "<td colspan='5'>Cart is empty, please go back and add items to cart</td>";
+                        echo "</tr>";
+					}
                     echo "<tr>";
-                    echo "<td colspan='5'></td>";
+                    echo "<td colspan='4'></td>";
                     echo "<td> Total = $".sprintf('%.2f', $total)."</td>";
                     echo "</tr>";
 	                ?>
@@ -132,7 +133,6 @@ if ($conn->connect_error) {
 					<tr>
                     	<th>id</th>
                     	<th>movie</th>
-                    	<th>day</th>
                     	<th>timing</th>
                     	<th>seat number</th>
                     	<th>price</th>
