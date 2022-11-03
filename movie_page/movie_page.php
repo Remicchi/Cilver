@@ -65,7 +65,11 @@
 				</a>
 				<nav>
 					<a href="../index.php">Home</a>
-					<a href="../cart_page/cart.php">Cart</a>
+					<?php
+					if($is_logged == 1){
+						echo "<a href='../cart_page/cart.php'>Cart</a>";
+					}
+					?>
 					<a href="../aboutus_page/aboutus.php">About Us</a>
 					<?php
                         if($is_logged == 1) {
