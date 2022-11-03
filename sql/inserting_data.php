@@ -31,7 +31,7 @@ $sql .= "INSERT INTO `movielist` (moviename, duration, cast, day, timing, descri
 VALUES ('Wandering', 150, 'Suzu Hirose, Tori Matsuzaka, Ryusei Yokohama, Mikako Tabe', '23/10/2022', '1:00pm,10:00pm', 'In a park on a rainy evening, a 19-year-old university student, Fumi, offers an umbrella to a soaking wet 10-year-old girl, Sarasa. Realizing her reluctance to go home, Fumi lets her stay in his place, where she spends the next two months in peace. They take each other hands and seem to have finally found their place in the world until Fumi is arrested for kidnapping. Fifteen years later, the lonely two are reunited both still suffering from the stigma as the victim and perpetrator of “a pedophile case”. Will the society give a place to their unshakable bond they have formed.', 13);";
 
 $sql .= "INSERT INTO `userlogininfo` (username, password, email)
-VALUES ('SickPhil', 'UnhackablePassword','Sick.Phil@email.com');";
+VALUES ('SickPhil', 'UnhackablePassword','SickPhil@localhost');";
 
 $sql .= "INSERT INTO `bookings` (username, movie, timing, seat, price, paid)
 VALUES ('testusername', 'BlackAdam', '1:00pm', '1,3,10', 15.0, 1);";

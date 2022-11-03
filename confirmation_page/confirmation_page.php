@@ -28,14 +28,14 @@ if ($conn->connect_error) {
 			break;
 		}
 	}
-	$recipient="Sick.Phil@email.com";
-	$subject="Test Email";
-	$mail_body="You have booked the following movies.";
-	$headers = 'From: root@localhost' . "\r\n" .
-	 	'Reply-To: root@localhost' . "\r\n" .
-	 	'X-Mailer: PHP/' . phpversion();
-	mail($recipient, $subject, $mail_body, $headers, '-root@localhost');
-	echo ("mail sent to: ".$recipient);
+	$sql = "SELECT * FROM `userlogininfo`";
+	$result = $conn->query($sql);
+	while($row = $result->fetch_assoc()) {
+		if($row["email"]){ 
+            $email = $row["email"];
+			break;
+		}
+	}
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -76,7 +76,6 @@ if ($conn->connect_error) {
 			</header>
 			<div class="content">
 				<h2>Order Summary</h2>
-				<p>A confirmation email has been sent to your inbox.</p>
 				<table class="report-table">
 					<tr>
 					<th colspan="5">The Following Orders are Successful</th>
@@ -91,6 +90,7 @@ if ($conn->connect_error) {
 					<?php
                     $sql = "SELECT * FROM `bookings`";
                     $result = $conn->query($sql);
+                    $checkTable = 0;
 					while($row = $result->fetch_assoc()) {
 						if($row["paid"] == 0 and $row['username'] == $currentuser){
 							$checkTable =1;
@@ -115,13 +115,6 @@ if ($conn->connect_error) {
 		                    echo "<td>".trim($row["seat"],",")."</td>";
 		                    echo "<td>$".$price."</td>";
 		                    echo "</tr>";
-		                    $id=$row["id"];
-		                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
-							$stmt= $conn->prepare($sql);
-							$stmt->bind_param("i", $id);
-							$stmt->execute();
-		                
-						
 		                    $total += $price;
 		                    $index++;
 		                }
@@ -130,6 +123,31 @@ if ($conn->connect_error) {
                     echo "<td colspan='4'></td>";
                     echo "<td> Total = $".sprintf('%.2f', $total)."</td>";
                     echo "</tr>";
+
+                    $recipient=$email;
+					$subject="Successful Movie Ticket Booking!";
+					$mail_body="You have booked the following movies.\n";
+					$headers = 'From: root@localhost' . "\r\n" .
+					 	'Reply-To: root@localhost' . "\r\n" .
+					 	'X-Mailer: PHP/' . phpversion();
+					$result = $conn->query($sql);
+                    while($row = $result->fetch_assoc()) {
+						if($row["paid"]==0 and $row['username'] == $currentuser){
+							$movie=$row["movie"];
+							$timing=$row["timing"];
+							$seat=trim($row['seat'],',');
+							$price=count(explode(',',trim($row["seat"],",")))*$row["price"];
+							$mail_body .= "Movie Name: $movie\nTiming: $timing\nSeat Numbers: $seat\nTotal Price: $price\n\n";
+							echo $mail_body;
+							$id=$row["id"];
+		                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
+							$stmt= $conn->prepare($sql);
+							$stmt->bind_param("i", $id);
+							$stmt->execute();
+						}
+                    }
+					mail($recipient, $subject, $mail_body, $headers, '-root@localhost');
+					echo ("<p>A confirmation email has been sent to $recipient</p>");
 	                ?>
 	            </table>
 
