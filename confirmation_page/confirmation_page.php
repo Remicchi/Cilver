@@ -138,7 +138,6 @@ if ($conn->connect_error) {
 							$seat=trim($row['seat'],',');
 							$price=count(explode(',',trim($row["seat"],",")))*$row["price"];
 							$mail_body .= "Movie Name: $movie\nTiming: $timing\nSeat Numbers: $seat\nTotal Price: $price\n\n";
-							echo $mail_body;
 							$id=$row["id"];
 		                    $sql = "UPDATE bookings SET paid=1 WHERE id=?";
 							$stmt= $conn->prepare($sql);
