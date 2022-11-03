@@ -122,6 +122,42 @@ if ($conn->connect_error) {
 		        }
 		        ?>
 		        </form>
+				<h2>Your Order</h2>
+				<table class="report-table">
+						<tr>
+	                    	<th>id</th>
+	                    	<th>movie</th>
+	                    	<th>timing</th>
+	                    	<th>seat number</th>
+	                    	<th>price</th>
+	                    </tr>
+						<?php
+	                    $sql = "SELECT * FROM `bookings`";
+	                    $result = $conn->query($sql);
+						
+						$result = $conn->query($sql);
+						$index=1;
+						$total=0;
+						while($row = $result->fetch_assoc()) {
+							if($row["paid"]==1 and $row['username'] == $currentuser){
+								$price = count(explode(',',trim($row["seat"],",")))*$row["price"];
+			                    echo "<tr>";
+			                    echo "<td>".$index."</td>";
+			                    echo "<td>".$row["movie"]."</td>";
+			                    echo "<td>".$row["timing"]."</td>";
+			                    echo "<td>".trim($row["seat"],",")."</td>";
+			                    echo "<td>$".$price."</td>";
+			                    echo "</tr>";
+			                    $total += $price;
+			                    $index++;
+			                }
+		                }
+	                    echo "<tr>";
+	                    echo "<td colspan='4'></td>";
+	                    echo "<td> Total = $".sprintf('%.2f', $total)."</td>";
+	                    echo "</tr>";
+		                ?>
+		            </table>
 			</div>
 			<footer>
 				<small><i>Copyright &copy; 2022 Movie Place</i></small> <br>
