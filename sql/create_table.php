@@ -31,6 +31,7 @@ if (mysqli_query($conn, $sql)) {
 
 //Create bookings
 $sql = "CREATE TABLE IF NOT EXISTS `bookings` (
+	id int UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 	username varchar(30) NOT NULL,
 	movie varchar(64) NOT NULL,
 	timing text NOT NULL,
