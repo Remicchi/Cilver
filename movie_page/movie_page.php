@@ -114,7 +114,13 @@
 						<!-- form 2 -->
 						<form action="add_to_cart.php" method="post">
 						<div id="seats">
-							<h3>Select Seats Below <br></h3>
+							<?php
+								if($is_logged == 0) {
+									echo "<h3>Log In to Select Seats<br></h3>";
+								} else {
+									echo "<h3>Select Seats Below <br></h3>";
+								}
+							?>
 							<label>Available: </label>
 							<input type="checkbox" class="free_seat" onclick="return false;">
 							<label>Unavailable: </label>
@@ -127,7 +133,12 @@
 							<input type="hidden" value="<?php echo "{$price}"?>" name="price">
 							<input type="hidden" value="<?php echo "{$selected_time}"?>" name="time">
 							<script type = "text/javascript" src = "seats.js"></script>
-							<input type="submit" name="submit" id="submit" value="Add to Cart">
+							<?php
+								if($is_logged == 1) {
+									echo "<input type=\"submit\" name=\"submit\" id=\"submit\" value=\"Add to Cart\">
+									";
+								}
+							?>
 							<!-- <input type="submit" name="submit" id="submit" value="Add to Cart" onclick='alert("Your movie booking has been added")'> -->
 						</div>
 						</form>                    
