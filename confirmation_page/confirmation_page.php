@@ -28,11 +28,11 @@ if ($conn->connect_error) {
 			break;
 		}
 	}
-	$sql = "SELECT * FROM `userlogininfo`";
+	$sql = "SELECT * FROM `userlogininfo` where username='{$currentuser}'";
 	$result = $conn->query($sql);
 	while($row = $result->fetch_assoc()) {
 		if($row["email"]){ 
-            $email = $row["email"];
+           		$email = $row["email"];
 			break;
 		}
 	}
@@ -127,8 +127,8 @@ if ($conn->connect_error) {
                     $recipient=$email;
 					$subject="Successful Movie Ticket Booking!";
 					$mail_body="You have booked the following movies.\n";
-					$headers = 'From: root@localhost' . "\r\n" .
-					 	'Reply-To: root@localhost' . "\r\n" .
+					$headers = 'From: Cilver@localhost' . "\r\n" .
+					 	'Reply-To: Cilver@localhost' . "\r\n" .
 					 	'X-Mailer: PHP/' . phpversion();
 					$result = $conn->query($sql);
                     while($row = $result->fetch_assoc()) {
@@ -145,7 +145,7 @@ if ($conn->connect_error) {
 							$stmt->execute();
 						}
                     }
-					mail($recipient, $subject, $mail_body, $headers, '-root@localhost');
+					mail($recipient, $subject, $mail_body, $headers, '-Cilver@localhost');
 					echo ("<p>A confirmation email has been sent to $recipient</p>");
 	                ?>
 	            </table>
